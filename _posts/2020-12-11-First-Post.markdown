@@ -1,8 +1,10 @@
 ---
 layout: post
+author: Kyo
 title:  "Welcome to Kyo's coding life!"
-date:   2020-12-11 18:12:26 +0800
-categories: life smalltalk
+image: assets/images/jumbotron.jpg
+featured: true
+categories: smalltalk
 ---
 Finally I success build my blog first post by `jekyll`! it's not so hard.
 
