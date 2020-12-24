@@ -12,23 +12,14 @@ permalink: /:title/
 
 # Authors
 authors:
-  kyo:
+  Kyo:
     name: Kyo
     display_name: Kyo
-    gravatar: e56154546cf4be74e393c62d1ae9f9d4
+    avatar: 'assets/images/avatar.png'
     email: kyoangel.tw@gmail.com
     web: https://kyoangel.github.io
     # twitter: https://twitter.com/wowthemesnet
-    description: "Author of Mediumish, a Bootstrap Medium styled template available for WordPress, HTML, Ghost and Jekyll. You are currently previewing Jekyll template demo."
-  # john:
-  #   name: John
-  #   display_name: John    
-  #   avatar: 'assets/images/avatar.png'
-  #   gravatar: b1cc14991db7a456fcd761680bbc8f81
-  #   email: wowthemesnet@gmail.com
-  #   web: https://www.wowthemes.net
-  #   twitter: https://twitter.com/wowthemesnet
-  #   description: "This is the author box. Write a short description of the author here. You are currently previewing Mediumish demo, a Jekyll template compatible with Github pages."
+    description: "Author of Coder_Kyo, sharing info for novice and professional software engineers increase their skills."
 
 # Plugins
 plugins:
