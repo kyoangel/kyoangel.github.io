@@ -15,13 +15,13 @@ categories: TechNotes
 
 這時候要做的事情很簡單，就是新增一個 Google Optimize 的代碼，並設定成每個頁面發動一次即可，不需要設定觸發條件。
 
-![OptimizeTag](/assets/images/GTM/addOptimize.png){:class="img-responsive"}
+![addOptimize](/assets/images/GTM/addOptimize.png){:class="img-responsive"}
 
-![OptimizeTag](/assets/images/GTM/optimizeTagSetting.png){:class="img-responsive"}
+![optimizeTagSetting](/assets/images/GTM/optimizeTagSetting.png){:class="img-responsive"}
 
 新增並設定 Google Optimize 代碼後，就去編輯 AllPageView 的代碼，去進階設定代碼觸法順序，並指定在 AllPageView 觸發前先觸發 Optimize 的代碼。
 
-![OptimizeTag](/assets/images/GTM/triggerBeforeView.png){:class="img-responsive"}
+![triggerBeforeView](/assets/images/GTM/triggerBeforeView.png){:class="img-responsive"}
 
 完成! 這樣就順利完成將 Google Optimize 的代碼整合到 GTM 裡面了。
 
