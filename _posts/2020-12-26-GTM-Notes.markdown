@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Kyo
-title:  "integrate Google Optimize into 設定完後"
+title:  "integrate Google Optimize into GTM"
 image: assets/images/Optimize.png
 featured: true
 categories: TechNotes
