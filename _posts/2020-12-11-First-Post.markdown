@@ -3,7 +3,7 @@ layout: post
 author: Kyo
 title:  "Welcome to Kyo's coding life!"
 image: assets/images/jumbotron.jpg
-featured: true
+featured: false
 categories: smalltalk
 ---
 Finally I success build my blog first post by `jekyll`! it's not so hard.
