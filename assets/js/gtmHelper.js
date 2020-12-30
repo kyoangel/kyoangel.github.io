@@ -56,7 +56,4 @@ function autoAddGtag(category, el) {
   $(el).find('img').each((index, item) => {
     addGtag(item, category, '_Img_');
   });
-  $(el).find('[allowfullscreen]').each(function (index, item) {
-    addGtag(item, category, '_Video_');
-  });
 }
