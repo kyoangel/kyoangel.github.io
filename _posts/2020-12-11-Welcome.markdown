@@ -20,14 +20,14 @@ Can just refer to [Jekyll site][jekyll-site], to install jekyll in seconds. and 
 
 Jekyll also offers powerful support for code snippets:
 
-{% highlight c# %}
+~~~ java
 // if statement without an else
 if (condition)
 {
     then-statement;
 }
 // Next statement in the program.
-{% endhighlight %}
+~~~
 
 This is really useful, before this I need to paste some `<pre class="prettyprint">` tag to show my code snippets. with this new feature, I can share code snippet more easily :).
 
