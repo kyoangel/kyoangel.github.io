@@ -7,7 +7,7 @@ post_class: post-template
 
 <!-- Begin Article
 ================================================== -->
-<div class="container">
+<div class="container" data-name="post">
     <div class="row">
 
         <!-- Post Share -->
@@ -179,3 +179,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
 }
 </script>
 {% endif %}
+
+<script>
+    autoAddGtag('layouts_post', '[data-name="post"]');
+</script>
