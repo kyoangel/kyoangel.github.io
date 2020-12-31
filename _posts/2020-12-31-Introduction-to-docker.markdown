@@ -16,8 +16,8 @@ docker run hello-world
 神奇的事情發生了，你應該會看到
 ![cmd](/assets/images/Docker/hello-world.png){:class="img-responsive"}
 
-如果看到以上畫面，恭喜你，你的 Docker 已經完整安裝了。解釋一下上面的指令，docker run 就是執行 docker 映像的指令。如果你的本機沒有這個映像的快取，docker 就會幫你找 Docker Hub 上面的 image 來執行。 hello-world 這個事實上是一個映像的名字。
-基本的映像名稱應該是 Namespace/Repository:Tag 的型式，如果是官方的映象，可以不用指定命名空間 (Namespace)，也可以不指定標籤(Tag)這樣就會拿最新版的，一般標籤是拿來做版本區分使用。所以 hello-world 就是拿官方的最新版的 hello-world 這個映像。
+如果看到以上畫面，恭喜你，你的 Docker 已經完整安裝了。解釋一下上面的指令，docker run 就是執行 docker 映像的指令。如果你的本機沒有這個映像的快取，docker 就會幫你找 Docker Hub 上面的 image 來執行。 hello-world 是一個映像的名字。
+完整的映像名稱應該是 Namespace/Repository:Tag 的型式，如果是官方的映象，可以不用指定命名空間 (Namespace)，而不指定標籤(Tag)就會拿最新版的映像，標籤是拿來做版本區分使用的。所以如果改成 `docker run kyoangel/hello-world:1.0` 就是拿 kyoangel 的 1.0 版本的 hello-world 這個映像。
 
 這時候你可以輸入
 ```
@@ -29,7 +29,7 @@ docker rmi hello-world
 ```
 來移除這個已經用不到的映象。
 
-這時候你會發現，你無法移除這個映像，這是因為剛剛的 docker run hello-world 的指令已經建立一個容器 (Container) 了而這個容器使用了那個映像。要刪除映像，必須先把容器停止。
+這時候你會發現，你無法移除這個映像，這是因為剛剛的 `docker run hello-world` 的指令已經建立一個容器 (Container) ，而這個容器使用了那個映像。要刪除映像，必須先把容器停止。
 
 先透過下面指令來查看容器。
 ```
