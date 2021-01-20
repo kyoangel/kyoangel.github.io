@@ -14,7 +14,7 @@ categories: troubleshoot
 我的解決方案是，參考[官方文件][outlink]{:target="_blank"}暫時停掉所有的資料表的 trigger。
 
 步驟1: 首先建立一個預存程序 (stored procedure)
-```
+``` sql
 CREATE PROCEDURE pr_Disable_Triggers 
 @disable BIT = 1
 AS 
