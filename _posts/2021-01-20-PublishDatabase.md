@@ -3,7 +3,7 @@ layout: post
 author: Kyo
 title:  "解決 Database 專案 發佈到 SQL Server 的問題"
 image: assets/images/troubleshoot/publishsqlserver.png
-featured: false
+featured: true
 categories: troubleshoot
 ---
 
