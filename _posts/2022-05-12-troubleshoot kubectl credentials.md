@@ -4,7 +4,7 @@ author: Kyo
 title:  "Fix Python on Git Bash"
 image: 
 featured: false
-categories: TechNotes,Troubleshoot
+categories: TechNotes Troubleshoot
 ---
 
 在使用 gcould cli 指令取得 credential 的時候碰到了下面的問題

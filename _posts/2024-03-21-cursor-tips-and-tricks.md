@@ -4,7 +4,7 @@ author: Kyo
 title: "Cursor 編輯器使用技巧"
 image: assets/images/cursor-editor-tips.png
 featured: true
-categories: TechNotes,Tools
+categories: TechNotes Tools
 ---
 
 Cursor 是一個基於 VS Code 的 AI 輔助程式編輯器，今天來分享一些實用的小技巧。

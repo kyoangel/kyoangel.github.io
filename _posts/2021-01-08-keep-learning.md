@@ -4,7 +4,7 @@ author: Kyo
 title:  "持續的做你原本不會做的事情"
 image: assets/images/smalltalk/keep.png
 featured: false
-categories: smalltalk
+categories: SmallTalk
 ---
 ### 持續的做你不會做的事
 做一樣的事情只會得到一樣的結果，想要不同的結果，那就要改變。

@@ -4,7 +4,7 @@ author: Kyo
 title: "LLM 生成式 AI 的 Prompt 工程技巧"
 image: assets/images/prompt-engineering.png
 featured: true
-categories: TechNotes,AI
+categories: TechNotes AI
 ---
 
 LLM 生成式 AI 的使用關鍵在於如何撰寫好的提示詞（Prompt），今天來分享一些實用的 Prompt 工程技巧。

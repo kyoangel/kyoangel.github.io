@@ -4,7 +4,7 @@ author: Kyo
 title:  "CheatSheet for git"
 image: 
 featured: false
-categories: TechNotes,CheatSheet
+categories: TechNotes CheatSheet
 ---
 
 平常開發時習慣使用 git cli，紀錄常用的指令方便查閱，希望也可以幫助到別人

@@ -4,7 +4,7 @@ author: Kyo
 title:  "Welcome to Kyo's coding life!"
 image: assets/images/jumbotron.jpg
 featured: false
-categories: smalltalk
+categories: SmallTalk
 ---
 Finally I success build my blog first post by `jekyll`! it's not so hard.
 

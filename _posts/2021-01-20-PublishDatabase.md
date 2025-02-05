@@ -4,7 +4,7 @@ author: Kyo
 title:  "解決 Database 專案 發佈到 SQL Server 的問題"
 image: assets/images/troubleshoot/publishsqlserver.png
 featured: true
-categories: troubleshoot
+categories: Troubleshoot
 ---
 
 如果你在 DB 專案中使用 db.publish.xml 結果失敗且錯誤訊息類似於
