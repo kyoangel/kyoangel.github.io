@@ -3,7 +3,7 @@ layout: post
 author: Kyo
 title:  "GTM 的簡單介紹"
 image: assets/images/GTM.png
-featured: true
+featured: false
 categories: TechNotes
 ---
 最近開發不少網站的登陸頁面，開始接觸到大量的資料追蹤需求。終於花時間(~~有權限~~)去了解什麼是 GTM，還有他運作的方式。在此之前我自己過往的經驗是埋 GA 代碼去追蹤特定的點擊或是操作。

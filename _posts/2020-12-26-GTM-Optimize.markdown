@@ -3,7 +3,7 @@ layout: post
 author: Kyo
 title:  "Integrate Google Optimize into GTM"
 image: assets/images/Optimize.png
-featured: true
+featured: false
 categories: TechNotes
 ---
 最近在嘗試使用 Google Optimize 最佳化工具在網站上做實驗，由於原本網站上已經使用了 GTM (Google Tag Manager) 在管理追蹤成效了。
