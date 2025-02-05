@@ -10,12 +10,7 @@ comments: true
 
 <p>This website is for recording the technical I learn recently, and hope can help others in the mean time.</p>
 
-<h4>Instagram</h4>
-
-<p>I will share some tool, extensions, and basic knowledge on Instagram, visit <a href="https://www.instagram.com/coder_kyo/">here</a>.</p>
-
-<p class="mb-5"><img class="shadow-lg" src="{{site.baseurl}}/assets/images/instagram-template.png" alt="instagram template" /></p>
-
+<p>I'm a software engineer with a passion for building scalable and efficient systems. I'm currently working on a project that uses C#, Vue, and MSSQL to create a web application.</p>
 </div>
 
 <div class="col-md-4">
