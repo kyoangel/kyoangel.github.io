@@ -47,7 +47,7 @@ def get_tech_news():
 
 # 2. 讓 AI 生成 Markdown 文章
 def generate_blog_post(topic):
-    prompt = f"請根據最新科技趨勢撰寫一篇技術部落格文章，主題如下：{topic}，從中挑選一個合適的主題來撰文，格式為 Markdown"
+    prompt = f"請根據 hacker news 中今天最熱門的文章標題：{topic}，來發想一個跟AI科技有關的文章，格式為 Markdown，請想像一下關於這個主題有可能運用到什麼AI技術應用，並嘗試給出可能的做法"
 
     response = client.chat.completions.create(
         model="llama-3-8b-gpt-4o-ru1.0",
@@ -78,7 +78,8 @@ if __name__ == "__main__":
     tech_news = get_tech_news()  # 取得科技趨勢
     if tech_news:
         # Get titles from the first three articles
-        blog_topic = tech_news[0]  # Join titles with commas
+        titles = [article["title"] for article in tech_news[:3]]
+        blog_topic = titles[0]  # Join titles with commas
         print(f"獲取的主題是：{blog_topic}")
         blog_post = generate_blog_post(blog_topic)  # 產生文章
         save_and_push_markdown(blog_post, blog_topic)  # 存檔並 push
