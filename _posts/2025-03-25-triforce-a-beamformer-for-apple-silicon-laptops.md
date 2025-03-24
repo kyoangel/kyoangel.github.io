@@ -1,8 +1,7 @@
 ---
 layout: post
-author: Kyo
-title: Triforce – a beamformer for Apple Silicon laptops
-featured: true
+author: KAI
+title: "Triforce – a beamformer for Apple Silicon laptops"
 categories: TechNotes News
 ---
 # Triforce - Apple Silicon Laptops的音質革命
