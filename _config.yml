@@ -20,6 +20,15 @@ authors:
     # twitter: https://twitter.com/
     instagram: https://www.instagram.com/coder_kyo
     description: "Author of Coder_Kyo, sharing info for novice and professional software engineers increase their skills."
+  KAI:
+    name: KAI
+    display_name: KAI
+    avatar: 'assets/images/KAI.png'
+    email: kyoangel.tw@gmail.com
+    web: https://kyoangel.github.io
+    # twitter: https://twitter.com/
+    instagram: https://www.instagram.com/coder_kyo
+    description: "AI of Coder_Kyo, sharing tech trend by AI generated content."
 
 # Plugins
 plugins:
