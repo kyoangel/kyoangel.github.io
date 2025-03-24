@@ -1,57 +1,45 @@
 from openai import OpenAI
 import requests
-import feedparser
-import os
+from bs4 import BeautifulSoup
 import datetime
 from git import Repo
 
 client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
 
-# 1. 取得最新科技趨勢（從 Hacker News RSS）
-def get_tech_news():
-    rss_url = "https://hnrss.org/frontpage"
-    feed = feedparser.parse(rss_url)
-    
+# 目標網站 (Hacker News)
+HN_URL = "https://news.ycombinator.com/"
+
+def fetch_hn_articles():
+    #"""爬取 Hacker News 首頁技術文章標題與連結"""
+    response = requests.get(HN_URL, timeout=5)
+    soup = BeautifulSoup(response.text, "html.parser")
+
     articles = []
+    for item in soup.select(".athing"):
+        title = item.select_one(".titleline a").text
+        link = item.select_one(".titleline a")["href"]
+        articles.append({"title": title, "link": link})
+
+    return articles[:5]  # 取前 5 篇技術文章
+
+def fetch_article_content(url):
+    #"""爬取指定技術文章的內文"""
+    response = requests.get(url, timeout=5)
+    soup = BeautifulSoup(response.text, "html.parser")
     
-    for entry in feed.entries:
-        # Extract ID from comments URL instead of link
-        comments_url = entry.comments
-        item_id = comments_url.split("item?id=")[-1]
-        api_url = f"https://hacker-news.firebaseio.com/v0/item/{item_id}.json"
-        
-        try:
-            response = requests.get(api_url, timeout=5)
-            response.raise_for_status()
-            item_data = response.json()
-            
-            if item_data is None:
-                continue
-                
-            score = item_data.get("score", 0)  # 文章分數
-            comments = item_data.get("descendants", 0)  # 評論數
-            
-            articles.append({
-                "title": entry.title,
-                "link": entry.link,
-                "score": score,
-                "comments": comments
-            })
-        except requests.RequestException:
-            continue  # 如果 API 請求失敗，跳過這篇文章
-    
-    # 依據分數 + 評論數排序，取前 5 名
-    sorted_articles = sorted(articles, key=lambda x: (x["score"], x["comments"]), reverse=True)
-    
-    return sorted_articles[:5]
+    # 嘗試抓取 HTML 內的文字內容
+    paragraphs = soup.find_all("p")
+    content = "\n".join(p.text for p in paragraphs[:5])  # 取前 5 段內文
+
+    return content if content else "無法擷取內容"
 
 # 2. 讓 AI 生成 Markdown 文章
-def generate_blog_post(topic):
-    prompt = f"請根據 hacker news 中今天最熱門的文章標題：{topic}，來發想一個跟AI科技有關的文章，格式為 Markdown，請想像一下關於這個主題有可能運用到什麼AI技術應用，並嘗試給出可能的做法"
+def generate_blog_post(topic, content):
+    prompt = f"請根據以下技術標題與內文撰寫一篇詳細的技術文章：\n\n標題:{topic}\n\n內文： {content}，請用專業且流暢的語氣撰寫"
 
     response = client.chat.completions.create(
         model="llama-3-8b-gpt-4o-ru1.0",
-        messages=[{"role": "system", "content": "你是一個技術部落客，專門使用繁體中文而非簡體中文撰寫最新科技趨勢文章。請以有趣幽默的口吻撰文，最後寫上警語提醒是AI撰文"},
+        messages=[{"role": "system", "content": "請使用繁體中文而非簡體中文撰寫，最後寫上警語提醒是AI撰文"},
                   {"role": "user", "content": prompt}]
     )
     
@@ -59,8 +47,9 @@ def generate_blog_post(topic):
 
 # 3. 自動存成 Markdown 並 Git Push
 def save_and_push_markdown(content, topic):
+    topic = topic.replace('–','').replace(' ', '-').replace(':', '-').replace("--",'-').lower()
     date_str = (datetime.datetime.now() - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
-    filename = f"_posts/{date_str}-{topic.replace(' ', '-').lower()}.md"
+    filename = f"_posts/{date_str}-{topic}.md"
 
     with open(filename, "w", encoding="utf-8") as f:
         markdown_head = f"---\nlayout: post\nauthor: KAI\ntitle: {topic}\ncategories: TechNotes News\n---\n"
@@ -75,13 +64,13 @@ def save_and_push_markdown(content, topic):
 
 # 執行流程
 if __name__ == "__main__":
-    tech_news = get_tech_news()  # 取得科技趨勢
-    if tech_news:
+    articles = fetch_hn_articles()  # 取得科技趨勢
+    if articles:
         # Get titles from the first three articles
-        titles = [article["title"] for article in tech_news[:3]]
-        blog_topic = titles[0]  # Join titles with commas
+        blog_topic = articles[0]["title"]  # Join titles with commas
         print(f"獲取的主題是：{blog_topic}")
-        blog_post = generate_blog_post(blog_topic)  # 產生文章
+        new_content = fetch_article_content(articles[0]["link"])
+        blog_post = generate_blog_post(blog_topic, new_content)  # 產生文章
         save_and_push_markdown(blog_post, blog_topic)  # 存檔並 push
     else:
         print("未能獲取最新科技新聞")

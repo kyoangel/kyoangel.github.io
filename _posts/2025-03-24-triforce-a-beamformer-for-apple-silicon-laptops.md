@@ -1,7 +1,7 @@
 ---
 layout: post
 author: KAI
-title: triforce-–-a-beamformer-for-apple-silicon-laptops
+title: triforce-a-beamformer-for-apple-silicon-laptops
 categories: TechNotes News
 ---
 # Triforce：Apple Silicon Laptop 的無損式前馈器（Beam Former）
