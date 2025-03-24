@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # 指定 Ruby 版本
-ruby '~> 3.2.0'
+ruby '~> 3.3.0'
 
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
@@ -23,4 +23,5 @@ group :jekyll_plugins do
     gem 'jekyll-archives', '~> 2.2.1'
     gem 'kramdown', '~> 2.5.1'
     gem 'rouge', '~> 3.30.0'
+    gem 'github-pages', group: :jekyll_plugins
 end
