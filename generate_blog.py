@@ -39,7 +39,7 @@ def generate_blog_post(topic, content):
 
     response = client.chat.completions.create(
         model="llama-3-8b-gpt-4o-ru1.0",
-        messages=[{"role": "system", "content": "請使用繁體中文而非簡體中文撰寫，最後寫上警語提醒是AI撰文"},
+        messages=[{"role": "system", "content": "請檢查是使用繁體中文避免使用簡體中文，最後要提醒本文章是AI撰文"},
                   {"role": "user", "content": prompt}]
     )
     
