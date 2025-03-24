@@ -15,7 +15,9 @@ def get_tech_news():
     articles = []
     
     for entry in feed.entries:
-        item_id = entry.link.split("=")[-1]  # 從 link 取出 HN ID
+        # Extract ID from comments URL instead of link
+        comments_url = entry.comments
+        item_id = comments_url.split("item?id=")[-1]
         api_url = f"https://hacker-news.firebaseio.com/v0/item/{item_id}.json"
         
         try:
@@ -23,6 +25,9 @@ def get_tech_news():
             response.raise_for_status()
             item_data = response.json()
             
+            if item_data is None:
+                continue
+                
             score = item_data.get("score", 0)  # 文章分數
             comments = item_data.get("descendants", 0)  # 評論數
             
@@ -72,7 +77,8 @@ def save_and_push_markdown(content, topic):
 if __name__ == "__main__":
     tech_news = get_tech_news()  # 取得科技趨勢
     if tech_news:
-        blog_topic = f"{tech_news[0]}, {tech_news[1], {tech_news[2]}}"  # 選第一個熱門趨勢
+        # Get titles from the first three articles
+        blog_topic = tech_news[0]  # Join titles with commas
         print(f"獲取的主題是：{blog_topic}")
         blog_post = generate_blog_post(blog_topic)  # 產生文章
         save_and_push_markdown(blog_post, blog_topic)  # 存檔並 push
