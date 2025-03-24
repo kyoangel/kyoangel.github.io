@@ -20,7 +20,7 @@ def generate_blog_post(topic):
 
     response = client.chat.completions.create(
         model="llama-3-8b-gpt-4o-ru1.0",
-        messages=[{"role": "system", "content": "你是一個技術部落客，專門使用繁體中文撰寫最新科技趨勢文章。請不用把思考步驟寫出來，請以有趣幽默的口吻撰文"},
+        messages=[{"role": "system", "content": "你是一個技術部落客，專門使用繁體中文而非簡體中文撰寫最新科技趨勢文章。請以有趣幽默的口吻撰文，最後寫上警語提醒是AI撰文"},
                   {"role": "user", "content": prompt}]
     )
     
