@@ -456,8 +456,10 @@ grep -rl 'href="/coder_kyo/tags#' _site/coder_kyo/*/index.html | head -3
 
 Confirm:
 - `bundle exec jekyll build` exits 0 with no `error`/`exception` lines
-- At least one post file is returned by each `grep -rl` (i.e. some post has categories and some post has tags pointing at `/coder_kyo/...`)
+- At least one post file is returned by the categories `grep -rl`
 - Output pristine (no errors, warnings)
+
+**Correction (observed during execution):** No existing post sets `tags:` in front matter, so the tags `grep -rl` returns nothing — `{% for tag in sortedTags %}` never iterates, so the tag link markup is never emitted in any built post. This is a pre-existing data condition (out of scope to add tags to posts). The source edit was confirmed correct directly in `_layouts/post.html` (line 116: `.../coder_kyo/tags#...`), and the build succeeded with no Liquid errors, confirming the template is syntactically valid.
 
 **COMMIT**
 Run:
