@@ -11,7 +11,7 @@
 
 **Complexity Path:** `Simplified TDD path` — **Configuration-only exception approved by user** (2026-06-11): "同意，採用 Configuration-only 驗證流程". This repo has no unit test framework; all changes are Jekyll config/permalink/Liquid template edits. Each task uses the Approved Exception Contract (Implementation → `bundle exec jekyll build`/`serve` verification → commit) instead of fabricated RED/GREEN steps.
 
-**Status:** In Progress
+**Status:** Complete
 
 ---
 
@@ -597,8 +597,17 @@ Confirm:
 - All manual browser checks above pass
 - Output pristine (no errors, warnings)
 
+**Correction (observed during execution):**
+- `grep -iE "error|exception|warn"` matches only the pre-existing Ruby 3.4 stdlib (`csv`/`base64`) and Sass `@import` deprecation warnings, consistent with every prior task's build — `error`/`exception` never appear. Build completes ("done in ... seconds").
+- `sitemap.xml` contains 31 `/coder_kyo/` URLs; `feed.xml` items point at `/coder_kyo/<slug>/` ✓
+- `find _site/coder_kyo -maxdepth 1` shows 17 post directories + `category/` (10 subdirs: ai, cheatsheet, docker, javascript, k8s, news, smalltalk, technotes, tools, troubleshoot) + flat `about.html`, `categories.html`, `tags.html`, `index.html` (per Task 2/3's no-trailing-slash permalink behavior) ✓
+- No interactive browser available — substituted `bundle exec jekyll serve --skip-initial-build --port 4002` + `curl` for the walkthrough. All of `/`, `/coder_kyo/`, `/coder_kyo/git-cheatsheet/`, `/coder_kyo/about`, `/coder_kyo/categories`, `/coder_kyo/tags`, `/coder_kyo/category/cheatsheet/` → `200`; `/git-cheatsheet/` and `/about` (old URLs) → `404` (redirect script present, per Task 7). `/coder_kyo/` lists all 17 post cards ✓
+
+**Bug found and fixed (additional fix to Task 6's file):** `_layouts/post.html` lines 126/129 used `href="{{ site.baseurl }}/{{page.previous.url}}"` (and `.next.url`). Since `page.previous.url`/`page.next.url` already start with `/` (e.g. `/coder_kyo/MySQL-LIMIT/`), this rendered as `href="//coder_kyo/MySQL-LIMIT/"` — a protocol-relative URL that browsers resolve to host `coder_kyo` (broken link). This bug pre-existed the routing split (it previously produced `//<slug>/`, host `<slug>`), but this plan's own acceptance criteria require working `/coder_kyo/...` prev/next links, so it's fixed here: removed the extra `/` → `href="{{ site.baseurl }}{{page.previous.url}}"` / `.next.url`. Rebuilt and verified: `href="/coder_kyo/MySQL-LIMIT/"` and `href="/coder_kyo/troubleshoot-kubectl-credentials/"` ✓
+
 **COMMIT**
-No commit for this task (verification only). If any issue is found, fix it in the relevant earlier task's files and re-run that task's commit.
+Run:
+`git commit -m "fix(post): remove duplicate slash in prev/next links so they resolve under /coder_kyo/"`
 
 ---
 
