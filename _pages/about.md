@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About This Blog
-permalink: /about
+permalink: /coder_kyo/about
 comments: true
 ---
 

@@ -1,5 +1,5 @@
 ---
 layout: tags
 title: Tags
-permalink: /tags
+permalink: /coder_kyo/tags
 ---
