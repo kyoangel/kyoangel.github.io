@@ -292,9 +292,9 @@ Run:
 bundle exec jekyll build 2>&1 | tee /tmp/jekyll-build-3.log
 grep -iE "error|exception" /tmp/jekyll-build-3.log
 test -f _site/coder_kyo/index.html && echo "PASS: /coder_kyo/ index created"
-POST_COUNT=$(ls _posts/*.md | wc -l | tr -d ' ')
+POST_COUNT=$(ls _posts/ | grep -v '^_' | wc -l | tr -d ' ')
 CARD_COUNT=$(grep -c 'class="card h-100"' _site/coder_kyo/index.html)
-echo "posts in _posts: $POST_COUNT, cards rendered: $CARD_COUNT"
+echo "posts in _posts (excluding underscore-prefixed/ignored): $POST_COUNT, cards rendered: $CARD_COUNT"
 test "$POST_COUNT" = "$CARD_COUNT" && echo "PASS: all posts rendered on /coder_kyo/"
 ```
 
