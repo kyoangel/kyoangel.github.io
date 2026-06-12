@@ -524,6 +524,23 @@ Confirm:
 - Browser check: visiting an old post path and `/about` both redirect into `/coder_kyo/...` and render correctly
 - Output pristine (no errors, warnings)
 
+**Correction (observed during execution):** No interactive browser is available in this environment. Substituted with `bundle exec jekyll serve --skip-initial-build --port 4001` + `curl`:
+- `/git-cheatsheet/` → `HTTP 404`, body contains the redirect script ✓
+- `/about` → `HTTP 404`, body contains the redirect script (1 occurrence) ✓
+- `/coder_kyo/git-cheatsheet/` → `HTTP 200` ✓
+- `/coder_kyo/about` → `HTTP 200` ✓
+- `/` → `HTTP 200`, contains "新首頁籌備中" (1 occurrence, placeholder shown not redirected) ✓
+
+Since `curl` does not execute JS, the redirect script itself (extracted from the rendered `/about` 404 response) was additionally run under `node` with a mocked `window.location` to confirm the actual redirect computation:
+- `/about` → `/coder_kyo/about`
+- `/git-cheatsheet/` → `/coder_kyo/git-cheatsheet/`
+- `/` → no redirect (placeholder stays)
+- `/coder_kyo/foo/` → no redirect (already-moved guard prevents loops)
+- `/assets/images/x.png` → no redirect (asset guard)
+- `/some-old/?x=1#frag` → `/coder_kyo/some-old/?x=1#frag` (query string + hash preserved)
+
+All cases correct.
+
 **COMMIT**
 Run:
 `git commit -m "feat(routing): redirect old top-level URLs to /coder_kyo/ via 404.html"`

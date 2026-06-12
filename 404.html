@@ -6,5 +6,17 @@ permalink: /404.html
 
 <div class="text-center">
 <h1 class="display-1 mt-5 mb-4"><span class="badge badge-danger">404</span> Page does not exist!</h1>
-<p>Please use the search bar at the top or visit our <a href="{{site.baseurl}}/">homepage</a>!</p>
+<p>Please use the search bar at the top or visit our <a href="{{site.baseurl}}/coder_kyo/">blog homepage</a>!</p>
 </div>
+
+<script>
+(function () {
+  var path = window.location.pathname;
+  var alreadyMoved = path.indexOf('/coder_kyo/') === 0 || path === '/coder_kyo';
+  var isRoot = path === '/' || path === '/index.html';
+  var isAsset = path.indexOf('/assets/') === 0;
+  if (!alreadyMoved && !isRoot && !isAsset) {
+    window.location.replace('/coder_kyo' + path + window.location.search + window.location.hash);
+  }
+})();
+</script>
