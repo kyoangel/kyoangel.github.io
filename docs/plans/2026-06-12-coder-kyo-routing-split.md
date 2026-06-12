@@ -406,7 +406,7 @@ grep -iE "error|exception" /tmp/jekyll-build-5.log
 grep -q 'navbar-brand" href="/coder_kyo/"' _site/coder_kyo/index.html && echo "PASS: logo links to /coder_kyo/"
 grep -q 'href="/coder_kyo/about">About' _site/coder_kyo/index.html && echo "PASS: About links to /coder_kyo/about"
 grep -q 'href="/coder_kyo/categories#' _site/coder_kyo/index.html && echo "PASS: categories jumbotron updated"
-grep -A1 'class="nav-item active"' _site/coder_kyo/index.html | grep -q '/coder_kyo/' && echo "PASS: Blog nav item active on /coder_kyo/"
+grep -A2 'class="nav-item active"' _site/coder_kyo/index.html | grep -q '/coder_kyo/' && echo "PASS: Blog nav item active on /coder_kyo/"
 
 # root placeholder should NOT show Blog as active
 grep -q 'class="nav-item active"' _site/index.html && echo "FAIL: root incorrectly marks Blog active" || echo "PASS: root nav not falsely active"

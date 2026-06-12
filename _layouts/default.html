@@ -69,7 +69,7 @@
         <div class="container pr-0">
 
             <!-- Begin Logo -->
-            <a class="navbar-brand" href="{{ site.baseurl }}/" data-name="nav-brand">
+            <a class="navbar-brand" href="{{ site.baseurl }}/coder_kyo/" data-name="nav-brand">
                 <img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{ site.name }}">
             </a>
             <!-- End Logo -->
@@ -86,16 +86,16 @@
 
                 <ul class="navbar-nav ml-auto">
 
-                    {% if page.url == "/" %}
+                    {% if page.url == "/coder_kyo/" %}
                     <li class="nav-item active">
                         {% else %}
                     <li class="nav-item">
                         {% endif %}
-                        <a class="nav-link" href="{{ site.baseurl }}/index.html">Blog</a>
+                        <a class="nav-link" href="{{ site.baseurl }}/coder_kyo/">Blog</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ site.baseurl }}/about">About</a>
+                        <a class="nav-link" href="{{ site.baseurl }}/coder_kyo/about">About</a>
                     </li>
 
                     {% include search-lunr.html %}
@@ -166,13 +166,13 @@
                     {% if categories_list.first[0] == null %}
                     {% for category in categories_list %}
                     <a class="mt-1 mb-1"
-                        href="{{site.baseurl}}/categories#{{ category | url_escape | strip | replace: ' ', '-' }}">{{ category | camelcase }}
+                        href="{{site.baseurl}}/coder_kyo/categories#{{ category | url_escape | strip | replace: ' ', '-' }}">{{ category | camelcase }}
                         ({{ site.tags[category].size }})</a>
                     {% endfor %}
                     {% else %}
                     {% for category in categories_list %}
                     <a class="mt-1 mb-1"
-                        href="{{site.baseurl}}/categories#{{ category[0] | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | camelcase }}
+                        href="{{site.baseurl}}/coder_kyo/categories#{{ category[0] | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | camelcase }}
                         ({{ category[1].size }})</a>
                     {% endfor %}
                     {% endif %}
