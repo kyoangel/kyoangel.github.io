@@ -7,7 +7,7 @@ favicon: 'assets/images/logo.png'
 disqus: 'kyoscodinglife'
 # mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
 include: ["_pages"]
-permalink: /:title/
+permalink: /coder_kyo/:title/
 
 # Authors
 authors:
@@ -32,7 +32,6 @@ authors:
 
 # Plugins
 plugins:
-  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-seo-tag
@@ -44,12 +43,8 @@ jekyll-archives:
     - categories
   layout: archive
   permalinks:
-    category: '/category/:name/'
-    
-# Pagination 
-paginate: 6
-paginate_path: /page:num/
-    
+    category: '/coder_kyo/category/:name/'
+
 # Other
 markdown: kramdown
 
