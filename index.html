@@ -1,12 +1,25 @@
 ---
-layout: default
+layout: home
 title: Home
 ---
 
-<section class="text-center" style="padding: 80px 0;">
-    <h1>Kyo's Personal Site</h1>
-    <p class="lead">新首頁籌備中，敬請期待。</p>
-    <p>
-        <a class="btn btn-danger" href="{{ site.baseurl }}/coder_kyo/">前往 Coder_Kyo 部落格 →</a>
-    </p>
-</section>
+<div class="hub">
+    <h1 class="hub-title">Kyo's Projects</h1>
+    <p class="hub-subtitle">持續打造中的個人專案與部落格</p>
+
+    <div class="project-grid">
+        {% for project in site.data.projects %}
+        {% if project.status == "active" %}
+        <a class="project-card project-card--active" href="{{ site.baseurl }}{{ project.url }}">
+            <h2>{{ project.title }}</h2>
+            <p>{{ project.description }}</p>
+        </a>
+        {% else %}
+        <div class="project-card project-card--placeholder">
+            <h2>{{ project.title }}</h2>
+            <p>{{ project.description }}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
