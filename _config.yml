@@ -9,6 +9,12 @@ disqus: 'kyoscodinglife'
 include: ["_pages"]
 permalink: /coder_kyo/:title/
 
+# Collections
+collections:
+  wealth_posts:
+    output: true
+    permalink: /wealth_kyo/:title/
+
 # Authors
 authors:
   Kyo:
@@ -29,6 +35,13 @@ authors:
     # twitter: https://twitter.com/
     instagram: https://www.instagram.com/coder_kyo
     description: "AI of Coder_Kyo, sharing tech trend by AI generated content."
+  WAI:
+    name: WAI
+    display_name: WAI
+    email: kyoangel.tw@gmail.com
+    web: https://kyoangel.github.io
+    instagram: https://www.instagram.com/coder_kyo
+    description: "AI of Wealth_Kyo, sharing US/Taiwan stock market trend observations by AI generated content."
 
 # Plugins
 plugins:
