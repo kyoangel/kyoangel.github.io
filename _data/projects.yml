@@ -3,10 +3,10 @@
   url: /coder_kyo/
   status: active
 
-- title: "Coming Soon"
-  description: "新專案籌備中，敬請期待"
-  url: ""
-  status: placeholder
+- title: "Wealth_Kyo"
+  description: "美股、台股投資趨勢觀察與市場筆記"
+  url: /wealth_kyo/
+  status: active
 
 - title: "Coming Soon"
   description: "新專案籌備中，敬請期待"
