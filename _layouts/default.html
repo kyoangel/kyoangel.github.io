@@ -1,3 +1,7 @@
+{%- assign is_wealth_kyo = false -%}
+{%- if page.url contains "/wealth_kyo/" -%}
+{%- assign is_wealth_kyo = true -%}
+{%- endif -%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +11,11 @@
 
     <link rel="icon" href="{{ site.baseurl }}/assets/images/logo.png">
 
+    {% if is_wealth_kyo %}
+    <title>{{ page.title }} | Wealth_Kyo</title>
+    {% else %}
     <title>{{ page.title }} | {{site.name}}</title>
+    {% endif %}
 
     {% seo %}
 
@@ -69,9 +77,15 @@
         <div class="container pr-0">
 
             <!-- Begin Logo -->
+            {% if is_wealth_kyo %}
+            <a class="navbar-brand" href="{{ site.baseurl }}/wealth_kyo/" data-name="nav-brand">
+                <img src="{{ site.baseurl }}/{{ site.logo }}" alt="Wealth_Kyo">
+            </a>
+            {% else %}
             <a class="navbar-brand" href="{{ site.baseurl }}/coder_kyo/" data-name="nav-brand">
                 <img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{ site.name }}">
             </a>
+            {% endif %}
             <!-- End Logo -->
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish"
@@ -86,6 +100,15 @@
 
                 <ul class="navbar-nav ml-auto">
 
+                    {% if is_wealth_kyo %}
+                    {% if page.url == "/wealth_kyo/" %}
+                    <li class="nav-item active">
+                        {% else %}
+                    <li class="nav-item">
+                        {% endif %}
+                        <a class="nav-link" href="{{ site.baseurl }}/wealth_kyo/">Blog</a>
+                    </li>
+                    {% else %}
                     {% if page.url == "/coder_kyo/" %}
                     <li class="nav-item active">
                         {% else %}
@@ -93,6 +116,7 @@
                         {% endif %}
                         <a class="nav-link" href="{{ site.baseurl }}/coder_kyo/">Blog</a>
                     </li>
+                    {% endif %}
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ site.baseurl }}/coder_kyo/about">About</a>
@@ -117,12 +141,21 @@
 
             <!-- Site Title
 ================================================== -->
+            {% if is_wealth_kyo %}
+            <div class="mainheading">
+                <h1 class="sitetitle">Wealth_Kyo</h1>
+                <p class="lead">
+                    美股、台股投資趨勢觀察與市場筆記
+                </p>
+            </div>
+            {% else %}
             <div class="mainheading">
                 <h1 class="sitetitle">{{ site.name }}</h1>
                 <p class="lead">
                     {{ site.description }}
                 </p>
             </div>
+            {% endif %}
 
             <!-- Content
 ================================================== -->
@@ -151,6 +184,7 @@
 
         </div>
 
+        {% unless is_wealth_kyo %}
         <!-- Categories Jumbotron
 ================================================== -->
         <div class="jumbotron fortags" data-name="jumbotron">
@@ -180,6 +214,7 @@
                 </div>
             </div>
         </div>
+        {% endunless %}
 
         <!-- Begin Footer
 ================================================== -->
