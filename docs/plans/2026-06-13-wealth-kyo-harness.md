@@ -11,7 +11,7 @@
 
 **Complexity Path:** `Simplified TDD path`（純靜態站設定/版型/內容變更，無後端邏輯）
 
-**Status:** Phase 1-6 完成並已本地 commit（尚未 push，依使用者要求保留本地檢視）；Phase 7 需使用者透過 claude.ai 網頁版 Routines 或 CLI `/schedule` 自行建立（原因見 Phase 7 章節，`RemoteTrigger`/`/v1/code/triggers` 非官方 Routines 建立路徑，已建立的 trigger 為停用中的孤兒物件）
+**Status:** 全部 Phase 完成並通過 dry-run。Phase 1-6 已 push 至 `origin master`；Phase 7 已建立並啟用每週 Routine（`trig_0158t4PLuUw1WKABm3JzKKbi`），使用者已完成 GitHub 連結與 Allow unrestricted branch pushes；dry-run 驗證內容產出 pipeline 成功，但 push 落在 `claude/*` 分支而非 `master`（已手動合併、並更新 prompt 改用 `git push origin HEAD:master`，待下次排程驗證），詳見 Phase 7「Dry-run 結果」
 
 ---
 
@@ -530,38 +530,39 @@ date: <今天日期 YYYY-MM-DD HH:MM:SS +0800>
    - 能成功新增 `_wealth_posts/*.md`、跑 `bundle exec jekyll build` 通過
    - 能成功 `git push` 到 `origin master`（驗證 claude.ai 帳號的 GitHub 連結權限涵蓋此 repo 的寫入權限）
 
-**目前進度與已知限制（2026-06-13 實作記錄）**
+**最終設定（2026-06-13，透過 `/schedule` skill 完成）**
 
-- 已成功建立 trigger `trig_0158t4PLuUw1WKABm3JzKKbi`（名稱 "Wealth_Kyo Weekly Post"），`cron_expression: "0 9 * * 1"`，回應 `next_run_at: "2026-06-15T09:03:58Z"`（= 台北時間週一 17:00，因 cron 以 UTC 計算）。**目前已停用**（`enabled: false`）。
-- 經查官方文件 [code.claude.com/docs/en/routines](https://code.claude.com/docs/en/routines) 確認：**`RemoteTrigger`（`/v1/code/triggers`）並非官方「Routines」功能的建立路徑**。官方文件定義 Routine = `prompt`（任務內容）+ `repositories`（要操作的 GitHub repo）+ `environment` + `connectors` + `trigger`（schedule/API/GitHub），且只能透過以下三種方式建立：
-  1. 網頁 `claude.ai/code/routines` → New routine
-  2. Desktop app → Routines → New routine → Remote
-  3. CLI 對話指令 `/schedule`（"walks through the same information the web form collects, then saves the routine to your account"）
-- 這解釋了為何 `job_config.ccr.session_context` 嘗試 `prompt`/`message`/`messages`/`system_prompt`/`task`/`input`/`max_turns` 全部被 proto 驗證拒絕為 `unknown field`，且 `session_request.worker` 不論內容皆回傳相同的 `"Field required"` 錯誤——**`/v1/code/triggers` 這個 API 的 schema 本身就不包含 `prompt`/`repositories` 欄位**，不是欄位命名猜錯。
-- 因此目前建立的 trigger `trig_0158t4PLuUw1WKABm3JzKKbi` 是一個**缺少 prompt/repo 設定的孤兒物件**，與官方 Routines 清單（`claude.ai/code/routines`）可能無關聯，即使啟用也不會做任何有意義的事。已維持 `enabled: false`，不影響任何 repo。
-- 我（執行此 plan 的 session）沒有 `/schedule` 指令的存取權（不在可呼叫的 skill/tool 清單中），因此**無法代為完成 Routine 建立**，需使用者自行操作。
+`/schedule` skill 提供了 `RemoteTrigger create`/`update` 的正確 body schema（`job_config.ccr.session_context.sources`/`allowed_tools`/`model` + `job_config.ccr.events[].data.message.content` 作為 prompt），先前嘗試的欄位名稱（`prompt`/`message`/`messages`/`system_prompt`/`task`/`input`/`max_turns`、`session_request.worker`）皆非正確結構。已將原本的 trigger 更新為完整設定：
 
-**Phase 7 交接步驟（待使用者自行完成）**
+- **Routine**：`Wealth_Kyo Weekly Post`（`trig_0158t4PLuUw1WKABm3JzKKbi`），連結：https://claude.ai/code/routines/trig_0158t4PLuUw1WKABm3JzKKbi
+- **Repo**：`https://github.com/kyoangel/kyoangel.github.io`
+- **Prompt**：上方 Implementation 步驟 1) 的中文指令全文
+- **Model**：`claude-sonnet-4-6`
+- **Allowed tools**：`Bash`, `Read`, `Write`, `Edit`, `Glob`, `Grep`, `WebSearch`
+- **Cron**：`0 1 * * 1`（UTC）= 每週一 09:00 Asia/Taipei，`next_run_at: 2026-06-15T01:03:58Z`
+- **enabled**：`true`
 
-1. 開啟 `claude.ai/code/routines` → New routine
-2. **Repository**：選擇 `kyoangel/kyoangel.github.io`，並開啟 **Allow unrestricted branch pushes**（預設只能 push `claude/` 前綴分支，無法直接更新 `master`）
-3. **Prompt**：使用本文件上方「Implementation」步驟 1) 中的中文 prompt 全文（WebSearch 趨勢 → 寫 `_wealth_posts/*.md` → `bundle exec jekyll build` → commit & push）
-4. **Environment**：Default 即可
-5. **Trigger**：Schedule → Weekly（網頁表單以本地時區輸入，會自動轉換，不需手動換算 UTC）
-6. 建立後可先點 **Run now** 做一次 dry-run，確認能成功 push 到 `master`
-7. 之後要調整頻率：回到該 Routine 的詳細頁面編輯排程即可，不需改動 repo 程式碼
+**使用者待辦（2 項，已於 2026-06-13 完成）**
 
-孤兒 trigger `trig_0158t4PLuUw1WKABm3JzKKbi` 可忽略（已停用、無害）；若使用者在網頁上看到它且想清除，可在該介面嘗試刪除（`RemoteTrigger` 工具本身沒有 delete action）。
+1. ✅ **GitHub 連結**：使用者已執行 `/web-setup`（`claude auth status` 確認 `loggedIn: true`，帳號 `kyoangel`）。
+2. ✅ **Allow unrestricted branch pushes**：使用者已在該 routine 的編輯頁面為此 repo 開啟此設定（dry-run 回應中 `sources[0].git_repository.allow_unrestricted_git_push: true` 已確認）。
+
+**Dry-run 結果（2026-06-13，`RemoteTrigger action: run`）**
+
+- ✅ Pipeline 本身完全成功：WebSearch 選定主題「晶片股閃崩與升息疑慮」，產出 `_wealth_posts/ai-chip-selloff-and-rate-hike-concerns.md`（繁體中文、約 600 字、正確 front matter、結尾含警語），`bundle exec jekyll build` 通過，commit 訊息符合 `feat(wealth_kyo): add weekly post on <主題關鍵字>` 格式。
+- ⚠️ **但 push 落在 `origin/claude/trusting-tesla-pphll9` 分支，而非 `master`**（即使 `allow_unrestricted_git_push: true`）。判斷是 CCR sandbox 預設將 session 簽出在 `claude/<session>-<suffix>` 分支、且未加 refspec 的 `git push` 會推到同名遠端分支，與「unrestricted push」設定（決定能否推、而非預設推到哪）無關。
+- ✅ **已手動修復**：將 `origin/claude/trusting-tesla-pphll9`（fast-forward）合併推送至 `master`（`b9a0cd2..cd81c45`），本機 `bundle exec jekyll build` 重新驗證通過，新文章已上線於 `/wealth_kyo/ai-chip-selloff-and-rate-hike-concerns/`。
+- ✅ **已更新 routine prompt 步驟 7**：明確指示執行 `git push origin HEAD:master`（明確 refspec，直接推送目前 commit 到 origin 的 `master`，不論本機分支名稱為何），取代原本含糊的「push 到 origin master」。已透過 `RemoteTrigger update` 套用，`next_run_at` 不變（`2026-06-15T01:03:58Z`）。
 
 **Verification**
 Confirm:
-- `RemoteTrigger create` 回應包含合理的下次執行時間與 routine URL
-- dry-run（`action: run`）執行完成後，`kyoangel/kyoangel.github.io` 的 `master` 分支出現一個新 commit，新增了一個 `_wealth_posts/*.md` 檔案，且該次 build 驗證通過
-- 若 dry-run push 失敗：屬於 claude.ai 帳號 GitHub 連結權限問題（與本機 SSH key、本 repo 設定無關），需使用者到 claude.ai 帳號設定檢查 GitHub App/Connector 對 `kyoangel/kyoangel.github.io` 的存取權限後再重試
+- ✅ `RemoteTrigger update` 回應包含合理的下次執行時間（`next_run_at: 2026-06-15T01:03:58Z`）與 routine URL
+- ✅ dry-run 已執行，內容產出 pipeline（WebSearch → 撰文 → build）驗證通過
+- ⏳ **`git push origin HEAD:master` 的修正尚未經過真實 routine 執行驗證**——將於下次排程執行（2026-06-15 週一 09:00 Taipei）或下一次手動 `RemoteTrigger run` 時確認是否直接 push 到 `master`（而非再產生 `claude/*` 分支）。若仍落在 `claude/*` 分支，可能需改為「PR-based」工作流（routine 開 PR，使用者review 後合併）。
 
 **頻率調整方式（之後隨時可做，不需改 repo）**
-- 之後想調整頻率（例如改成每兩週、每月、或改成每週三），只需在任何一次對話中請 Claude 呼叫 `RemoteTrigger`（`action: update`, `trigger_id: <上面取得的 ID>`）並提供新的 cron 排程即可，repo 程式碼與設定完全不需變動。
-- 想暫停或移除：同樣對 `trigger_id` 呼叫 `RemoteTrigger update`（停用）或詢問 Claude 如何刪除該 routine。
+- 之後想調整頻率（例如改成每兩週、每月、或改成每週三），只需在任何一次對話中請 Claude 呼叫 `RemoteTrigger`（`action: update`, `trigger_id: trig_0158t4PLuUw1WKABm3JzKKbi`, `body: {"cron_expression": "<新 cron，UTC>"}`），或在 `claude.ai/code/routines` 該 routine 詳細頁面直接編輯排程，repo 程式碼與設定完全不需變動。
+- 想暫停：`RemoteTrigger update` 設定 `{"enabled": false}`。想移除：至 `claude.ai/code/routines` 該 routine 頁面刪除（`RemoteTrigger` API 無 delete action）。
 
 **COMMIT**
 （本 Task 不修改 repo 檔案；dry-run 產生的 commit 由 routine 自動建立，無需手動 commit。）
