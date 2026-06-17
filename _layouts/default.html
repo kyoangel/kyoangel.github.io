@@ -2,6 +2,10 @@
 {%- if page.url contains "/wealth_kyo/" -%}
 {%- assign is_wealth_kyo = true -%}
 {%- endif -%}
+{%- assign is_game_kyo = false -%}
+{%- if page.url contains "/game_kyo/" -%}
+{%- assign is_game_kyo = true -%}
+{%- endif -%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +17,8 @@
 
     {% if is_wealth_kyo %}
     <title>{{ page.title }} | Wealth_Kyo</title>
+    {% elsif is_game_kyo %}
+    <title>{{ page.title }} | Game_Kyo</title>
     {% else %}
     <title>{{ page.title }} | {{site.name}}</title>
     {% endif %}
@@ -80,6 +86,8 @@
             <a class="navbar-brand" href="{{ site.baseurl }}/" data-name="nav-brand">
                 {% if is_wealth_kyo %}
                 <img src="{{ site.baseurl }}/{{ site.logo }}" alt="Wealth_Kyo">
+                {% elsif is_game_kyo %}
+                <img src="{{ site.baseurl }}/{{ site.logo }}" alt="Game_Kyo">
                 {% else %}
                 <img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{ site.name }}">
                 {% endif %}
@@ -128,6 +136,13 @@
                     美股、台股投資趨勢觀察與市場筆記
                 </p>
             </div>
+            {% elsif is_game_kyo %}
+            <div class="mainheading">
+                <h1 class="sitetitle">Game_Kyo</h1>
+                <p class="lead">
+                    輕鬆好玩的小遊戲收藏，隨時挑戰自我
+                </p>
+            </div>
             {% else %}
             <div class="mainheading">
                 <h1 class="sitetitle">{{ site.name }}</h1>
@@ -164,7 +179,7 @@
 
         </div>
 
-        {% unless is_wealth_kyo %}
+        {% unless is_wealth_kyo or is_game_kyo %}
         <!-- Categories Jumbotron
 ================================================== -->
         <div class="jumbotron fortags" data-name="jumbotron">
@@ -219,6 +234,12 @@
                 <div class="row">
                     <div class="col-12 text-center mt-2">
                         <img src="https://visitor-badge.laobi.icu/badge?page_id=kyoangel.github.io.wealth_kyo" alt="累計訪問次數">
+                    </div>
+                </div>
+                {% elsif page.url == "/game_kyo/" %}
+                <div class="row">
+                    <div class="col-12 text-center mt-2">
+                        <img src="https://visitor-badge.laobi.icu/badge?page_id=kyoangel.github.io.game_kyo" alt="累計訪問次數">
                     </div>
                 </div>
                 {% endif %}

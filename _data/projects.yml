@@ -8,7 +8,7 @@
   url: /wealth_kyo/
   status: active
 
-- title: "Coming Soon"
-  description: "新專案籌備中，敬請期待"
-  url: ""
-  status: placeholder
+- title: "Game_Kyo"
+  description: "輕鬆好玩的小遊戲收藏，隨時挑戰自我"
+  url: /game_kyo/
+  status: active
