@@ -2,7 +2,7 @@
 name: "Coder_Kyo"
 title: "Kyo's Coding Life"
 url: "https://kyoangel.github.io"
-description: "Share coding techniques, learning and notes"
+description: "軟體工程師的技術成長筆記，涵蓋 AI 工具實戰、Cursor 使用技巧、Engineering Management 觀察，以及台美股市場投資趨勢分析。"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
 disqus: 'kyoscodinglife'
@@ -79,3 +79,10 @@ adsense-data-ad-slot: "1363087678"
 lazyimages: "disabled"
 
 exclude: [changelog.md, LICENSE.txt, README.md, Gemfile, Gemfile.lock, docs]
+
+# Default og:image fallback for posts without an image
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: assets/images/logo.png

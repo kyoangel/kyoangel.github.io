@@ -3,7 +3,6 @@ layout: post
 author: Kyo
 title:  "Fix Python on Git Bash"
 description: "解決在 Git Bash 使用 gcloud CLI 取得 Kubernetes cluster credentials 時，因 Python 路徑權限問題導致失敗的排錯過程與解決方案。"
-image: 
 featured: false
 categories: TechNotes Troubleshoot
 ---

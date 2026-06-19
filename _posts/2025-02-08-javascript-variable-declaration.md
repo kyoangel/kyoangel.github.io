@@ -3,7 +3,6 @@ layout: post
 author: Kyo
 title: "JavaScript 變數宣告的重要觀念：let、var 與 const"
 description: "深入解析 JavaScript 三種變數宣告方式 var、let、const 的差異，涵蓋作用域（scope）、提升（hoisting）行為與各自的最佳使用時機。"
-image: 
 featured: false
 categories: TechNotes JavaScript
 ---

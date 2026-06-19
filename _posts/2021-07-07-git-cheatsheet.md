@@ -3,7 +3,6 @@ layout: post
 author: Kyo
 title:  "CheatSheet for git"
 description: "常用 git CLI 指令速查表，涵蓋 patch 產生、branch 操作、rebase 與 stash 等日常開發必備指令。"
-image: 
 featured: false
 categories: TechNotes CheatSheet
 ---
