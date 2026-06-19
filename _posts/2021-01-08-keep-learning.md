@@ -2,6 +2,7 @@
 layout: post
 author: Kyo
 title:  "持續的做你原本不會做的事情"
+description: "想要不同的結果，就要改變做法。先把自己當成資深工程師，你自然會做資深工程師該做的事——持續學習，才是成長的關鍵。"
 image: assets/images/smalltalk/keep.png
 featured: false
 categories: SmallTalk

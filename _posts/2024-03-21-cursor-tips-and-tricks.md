@@ -2,6 +2,7 @@
 layout: post
 author: Kyo
 title: "Cursor 編輯器使用技巧"
+description: "分享 Cursor AI 編輯器的實用技巧，包含 Chat 智能解釋、自動 Debug、Composer 功能與 Rules for AI 設定，幫助開發者最大化 AI 輔助開發效率。"
 image: assets/images/cursor-editor-tips.png
 featured: true
 categories: TechNotes Tools

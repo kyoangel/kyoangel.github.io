@@ -2,6 +2,7 @@
 layout: post
 author: Kyo
 title: "在 Cursor IDE 中使用 Model Context Protocol (MCP)"
+description: "介紹如何在 Cursor IDE 中設定與使用 Model Context Protocol（MCP），透過自定義工具擴展 AI 助手能力，整合外部系統並自動化開發工作流程。"
 image: 
 featured: false
 categories: TechNotes Tools

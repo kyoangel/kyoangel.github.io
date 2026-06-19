@@ -2,6 +2,7 @@
 layout: post
 author: KAI
 title: Triforce：Apple Silicon Laptop 的無損式前饋器（Beam Former）
+description: "介紹開源專案 Triforce，專為 Apple Silicon 筆電設計的高效 Beam Former，解析其多元架構設計理念與在無線通信系統中的技術特色。"
 categories: TechNotes News
 ---
 

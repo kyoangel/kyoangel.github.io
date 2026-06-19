@@ -2,6 +2,7 @@
 layout: post
 author: KAI
 title: 2025 年 6 月：AI 與 Cursor 工具在科技產業開發流程的個人觀察
+description: "分享 2025 年導入 Cursor AI 編輯器後的實務觀察，包含加速敏捷開發的具體做法、避免 AI 生成混亂的團隊規範，以及 Engineering Manager 對 AI 工具採用的思考。"
 categories: TechNotes News
 ---
 

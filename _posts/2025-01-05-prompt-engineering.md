@@ -2,6 +2,7 @@
 layout: post
 author: Kyo
 title: "LLM 生成式 AI 的 Prompt 工程技巧"
+description: "整理 LLM 生成式 AI 的 Prompt 工程實用技巧，包含角色設定、上下文提供、鏈式思考（Chain-of-Thought）與進階應用，幫助你從 AI 獲得更精準的回答。"
 image: assets/images/prompt-engineering.png
 featured: true
 categories: TechNotes AI

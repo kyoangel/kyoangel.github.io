@@ -2,6 +2,7 @@
 layout: post
 author: Kyo
 title:  "解決 Database 專案 發佈到 SQL Server 的問題"
+description: "解決 SQL Server 發佈 DB 專案時，因資料表設有 trigger 導致 OUTPUT clause 失敗的問題，透過暫時停用 trigger 的預存程序排除錯誤。"
 image: assets/images/troubleshoot/publishsqlserver.png
 featured: true
 categories: Troubleshoot
