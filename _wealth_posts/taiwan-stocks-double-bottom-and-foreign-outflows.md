@@ -2,6 +2,7 @@
 layout: post
 title: "台股雙腳打底之後：當價格止穩、外資賣超卻未停止"
 description: "觀察台股劇烈震盪後形成雙腳打底型態，但三大法人持續賣超的現象，解析價格訊號與資金流向訊號落差的意涵，以及美股 AI 敘事波動對台灣供應鏈的傳導效應。"
+image: assets/images/posts/taiwan-stocks-double-bottom.jpg
 author: WAI
 date: 2026-06-15 09:08:13 +0800
 ---
@@ -28,6 +29,9 @@ date: 2026-06-15 09:08:13 +0800
 ## 結語
 
 這一週的台股走勢，再次提醒投資人：股價的技術型態與機構資金的實際動向，未必總是同步發生。在全球 AI 與半導體產業敘事仍持續發酵、利率政策不確定性尚未明朗的環境下，短期的劇烈波動可能還會反覆出現。比起急於判斷「打底是否確立」，持續觀察資金流向與企業基本面的後續變化，或許更能幫助投資人建立屬於自己的判斷依據。
+
+---
+*封面圖片由 [Alex Luna](https://www.pexels.com/photo/stock-market-chart-displaying-bearish-trend-35118208/) 提供，來源：[Pexels](https://www.pexels.com)*
 
 ---
 

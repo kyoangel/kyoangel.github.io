@@ -3,6 +3,7 @@ layout: post
 author: KAI
 title: 2025 年 6 月：AI 與 Cursor 工具在科技產業開發流程的個人觀察
 description: "分享 2025 年導入 Cursor AI 編輯器後的實務觀察，包含加速敏捷開發的具體做法、避免 AI 生成混亂的團隊規範，以及 Engineering Manager 對 AI 工具採用的思考。"
+image: assets/images/posts/ai-cursor-dev-experience.jpg
 categories: TechNotes News
 ---
 
@@ -31,5 +32,8 @@ categories: TechNotes News
 AI 工具如 Cursor，已經成為科技產業開發流程不可或缺的一環。它不僅提升了開發效率，更讓團隊能專注在高價值的創新工作。不過，AI 生成的混亂也提醒我們，規範與人工把關同樣重要。未來我相信，AI 與人類工程師的協作會越來越緊密，敏捷開發也會因此變得更有彈性與創造力。
 
 ---
+*封面圖片由 [cottonbro studio](https://www.pexels.com/photo/men-sitting-at-the-desks-in-an-office-and-using-computers-6804068/) 提供，來源：[Pexels](https://www.pexels.com)*
 
-**警語提醒是AI撰文** 
+---
+
+**警語提醒是AI撰文**

@@ -2,6 +2,8 @@
 layout: post
 author: KAI
 title: "當 AI agent 開始自己排班：Claude Code Routines 與巢狀 sub-agent 讓我重新想了一次團隊的自動化邊界"
+description: "Claude Code 2.1 推出 Routines 排程功能與五層巢狀 sub-agent，身為 Engineering Manager，評估這次更新對團隊自動化邊界的影響與分階段導入建議。"
+image: assets/images/posts/claude-code-routines-nested-subagents.jpg
 categories: TechNotes AI
 ---
 
@@ -26,6 +28,9 @@ categories: TechNotes AI
 **採用時間軸建議。** 分三階段。POC 約兩週，只在低風險 repo 跑唯讀的掃描＋摘要，看輸出穩不穩定、有沒有明顯誤判。小規模試點約一個月，讓它做 PR 標註但不執行任何寫入動作，看 reviewer 對標註的採信率與是否因它出包漏看問題。連續兩週沒有重大誤判，我才考慮全面推行，且仍把改變生產狀態的動作排除在自動化外。
 
 這是我接下來幾週會持續觀察的方向，尤其想看巢狀 sub-agent 在真實混亂的 repo 裡會不會失控。如果你的團隊也在評估類似工具，我很想知道你們在自動化邊界這條線上怎麼畫的。
+
+---
+*封面圖片由 [Pavel Danilyuk](https://www.pexels.com/photo/close-up-shot-of-white-toy-robot-on-blue-and-pink-background-8294663/) 提供，來源：[Pexels](https://www.pexels.com)*
 
 ---
 

@@ -3,6 +3,7 @@ layout: post
 author: Kyo
 title: "JavaScript 變數宣告的重要觀念：let、var 與 const"
 description: "深入解析 JavaScript 三種變數宣告方式 var、let、const 的差異，涵蓋作用域（scope）、提升（hoisting）行為與各自的最佳使用時機。"
+image: assets/images/posts/javascript-variable-declaration.jpg
 featured: false
 categories: TechNotes JavaScript
 ---
@@ -101,4 +102,7 @@ user = {};  // TypeError: Assignment to constant variable
 
 ## 總結
 
-了解這些變數宣告的差異對於寫出優質的 JavaScript 程式碼非常重要。建議在現代 JavaScript 開發中，優先使用 `const` 和 `let`，這樣可以避免很多常見的問題，讓程式碼更加可靠和易於維護。 
+了解這些變數宣告的差異對於寫出優質的 JavaScript 程式碼非常重要。建議在現代 JavaScript 開發中，優先使用 `const` 和 `let`，這樣可以避免很多常見的問題，讓程式碼更加可靠和易於維護。
+
+---
+*封面圖片由 [Stanislav Kondratiev](https://www.pexels.com/photo/screen-with-code-10816120/) 提供，來源：[Pexels](https://www.pexels.com)*

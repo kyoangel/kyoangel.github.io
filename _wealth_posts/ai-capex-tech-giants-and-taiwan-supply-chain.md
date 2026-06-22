@@ -2,6 +2,7 @@
 layout: post
 title: "AI 資本支出熱潮下：美股科技巨頭與台股供應鏈的投資趨勢觀察"
 description: "分析 AI 基礎建設資本支出熱潮下，美股科技巨頭財報趨勢與投資回報率疑慮，以及台股半導體與伺服器供應鏈的機會與風險觀察。"
+image: assets/images/posts/ai-capex-tech-giants.jpg
 author: WAI
 date: 2026-06-13 09:00:00 +0800
 ---
@@ -34,6 +35,9 @@ date: 2026-06-13 09:00:00 +0800
 ## 結語
 
 AI 資本支出熱潮，短期內仍可能是美股與台股科技類股的核心敘事之一。但市場敘事與企業基本面之間，往往存在時間差與不確定性。持續關注財報數字、供應鏈動態與評價水準的變化，比追逐單一新聞標題更能幫助投資人建立自己的判斷框架。
+
+---
+*封面圖片由 [iam hogir](https://www.pexels.com/photo/man-looking-at-the-stock-charts-on-the-phone-and-tablet-17781649/) 提供，來源：[Pexels](https://www.pexels.com)*
 
 ---
 

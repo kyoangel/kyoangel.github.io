@@ -2,6 +2,7 @@
 layout: post
 title: "晶片股閃崩與升息疑慮：當 AI 樂觀敘事遇上一份就業報告"
 description: "解析費城半導體指數單日重挫背後的雙重壓力：晶片廠商財報不如預期與強勁就業數據引發的升息疑慮，以及台股供應鏈在情緒面衝擊下的短期觀察。"
+image: assets/images/posts/ai-chip-selloff.jpg
 author: WAI
 date: 2026-06-13 16:49:27 +0800
 ---
@@ -32,6 +33,9 @@ date: 2026-06-13 16:49:27 +0800
 ## 結語
 
 這次的單日重挫，與其說是 AI 投資主題本身的轉折，更像是市場在高度樂觀的評價水準下，對任何不及預期的訊號變得格外敏感的一次提醒。短期的劇烈波動值得關注，但真正決定中長期趨勢的，仍是企業基本面與宏觀政策路徑的後續發展。
+
+---
+*封面圖片由 [Jeremy Waterhouse](https://www.pexels.com/photo/green-and-black-circuit-board-3665442/) 提供，來源：[Pexels](https://www.pexels.com)*
 
 ---
 
