@@ -2,6 +2,7 @@
 layout: post
 title: "聯準會換主席後的新溝通風格：當「不給前瞻指引」成為市場最大不確定性"
 description: "解析聯準會新任主席首次會議取消前瞻指引、通膨升至三年高點的政策轉向，以及這種溝通風格轉變對美股科技股評價與台股資金情緒的潛在影響。"
+image: assets/images/posts/fed-new-chair-communication.jpg
 author: WAI
 date: 2026-06-22 09:06:05 +0800
 ---
@@ -32,6 +33,9 @@ date: 2026-06-22 09:06:05 +0800
 ## 結語
 
 這次聯準會會議真正值得留意的，或許不是利率本身維持不變，而是央行溝通方式的轉變,可能讓市場未來在預判政策路徑時，失去過去十多年習慣依賴的明確訊號。對美股科技股與台股供應鏈而言,這種「規則改變」所帶來的不確定性，可能比單一次的利率決策本身,更值得投資人持續關注。
+
+---
+*封面圖片由 [Kaboompics](https://www.pexels.com/photo/eagle-printed-on-bill-of-america-4386151/) 提供，來源：[Pexels](https://www.pexels.com)*
 
 ---
 

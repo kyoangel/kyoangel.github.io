@@ -2,7 +2,7 @@
 layout: post
 author: Kyo
 title:  "LIMIT Clause in MySQL"
-image: 
+image: assets/images/posts/mysql-limit-clause.jpg
 featured: false
 categories: TechNotes
 ---
@@ -23,6 +23,9 @@ FROM customers
 LIMIT 3, 4
 ```
 
-上面語法可以抓第 4, 5, 6, 7 這四筆資料，跳過前三筆  
+上面語法可以抓第 4, 5, 6, 7 這四筆資料，跳過前三筆
 最近剛學到的，分享一下 :)
+
+---
+*封面圖片由 [Kampus Production](https://www.pexels.com/photo/computer-and-laptop-over-white-table-8636589/) 提供，來源：[Pexels](https://www.pexels.com)*
 
