@@ -12,7 +12,10 @@ permalink: /404.html
 <script>
 (function () {
   var path = window.location.pathname;
-  var alreadyMoved = path.indexOf('/coder_kyo/') === 0 || path === '/coder_kyo';
+  var knownSections = ['/coder_kyo/', '/wealth_kyo/', '/game_kyo/'];
+  var alreadyMoved = knownSections.some(function (section) {
+    return path.indexOf(section) === 0 || path === section.slice(0, -1);
+  });
   var isRoot = path === '/' || path === '/index.html';
   var isAsset = path.indexOf('/assets/') === 0;
   if (!alreadyMoved && !isRoot && !isAsset) {
