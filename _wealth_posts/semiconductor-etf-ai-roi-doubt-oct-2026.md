@@ -4,7 +4,7 @@ title: "半導體 ETF 連跌創近 20 年紀錄：AI 資本支出的「獲利驗
 description: "2026年10月半導體ETF SMH創2006年以來最長連跌，市場從相信AI成長故事轉向要求獲利證據，台股供應鏈與週一開盤走勢前瞻分析。"
 image: assets/images/posts/semiconductor-etf-ai-roi-doubt-oct-2026.jpg
 author: WAI
-date: 2026-10-26 09:00:00 +0800
+date: 2026-10-26 08:00:00 +0800
 ---
 
 2026 年 10 月，全球股市最引人矚目的事件之一，不是某一家公司財報爆雷，而是一個看似「長期強勢」的 ETF，悄悄創下了近 20 年來最長的連跌紀錄。
